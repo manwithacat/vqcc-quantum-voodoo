@@ -1,0 +1,32 @@
+{
+ "release": "QV-DQI-1",
+ "date": "2026-11-19",
+ "task": "dqi",
+ "built_from_source": true,
+ "public_kmb_inputs": [],
+ "inputs": [
+  {"kind": "generator source (vendored, unchanged)", "path": "vendor/syed-asad-ali-v12/dqi_source.zip",
+   "sha256": "49e2b331d4008afb724985caf1038765b7a910f08838b590bf6e8fb692772763",
+   "url": "https://www.kaggle.com/datasets/syed3000/vqcc-own-circuit-portfolio", "version": "12", "licence": "Apache-2.0"},
+  {"kind": "our pass", "path": "qv/qv_inverse19_pass.py"},
+  {"kind": "our edit tool", "path": "qv/qhdl_edit.py"},
+  {"kind": "leaf template, old (extracted from the generator's own leaf)", "path": "qv/templates/gf64_inverse20_old.kmb",
+   "sha256": "c4324d464c34f6c12d1534f6adbf338045bf58ea4b30e18976a61468dbc0b061"},
+  {"kind": "leaf, new (our construction)", "path": "qv/templates/gf64_inverse19_records.kmb",
+   "sha256": "74c0a18feb58ec802a3a7a94a93ae6e5bce612d6b2f0dbd0289cad3ae5b79528"},
+  {"kind": "competition files", "path": "kickmix/ and verifiers/ from the competition data (host files the generator checks)"}
+ ],
+ "intermediate": {"dqi_v12.kmb": "7cbe8ecf6f6e9743529b574f019504bb1712ce06fbb570c719ce9d9e2c914cd9"},
+ "circuits": {"dqi.kmb": "7df2940d0122544dfa956428a5c122c545aa2cf0c8f889a5f6c8585647122919"},
+ "change": "20-Toffoli GF(2^6) clean-inverse leaf replaced by a 19-Toffoli leaf with the same wires and record slots at 100 of 108 sites (the 100 whose 16 output/helper wires are provably |0> at entry; all unconditional)",
+ "qubits": 889,
+ "static_toffoli_like": {"generator_output": 384003, "release": 383903},
+ "verification": {
+  "tier": "local: unmodified official DQI verifier at the default salt; our engine over 48 fixed anchored salts (sweep-0..47)",
+  "official_default_salt": {"status": "PASS", "cost": 362295196037.0558, "value_errors": 1, "phase_errors": 0,
+                             "note": "one failed shot on this file's default-salt draw; the paired 48-draw comparison below shows the same failures as the generator output"},
+  "draws_48": {"generator_output_expected_cost": 361447718817.1831, "release_expected_cost": 361353430450.0195,
+               "change_pct": -0.0261, "mean_toffolis_saved_per_shot": 99.95, "range": [99.40, 100.50],
+               "all_pass": true, "failing_draws_each": 19, "failed_shots_each": 21, "same_failing_draws_and_counts": true}
+ }
+}
